@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    <h2>List of all places that you can visit</h2>
+    {% for place in places %}
+        <div><a href="{% url 'place' place.id %}">{{ place.name }} - {{ place.location }}</a></div>
+    {% endfor %}
+{% endblock %}
