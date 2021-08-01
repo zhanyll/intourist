@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic import FormView
 from .models import Place
-from .forms import PlaceForm
+from .forms import PlaceForm, FeedbackForm
 # Create your views here.
 
 def places(request):
@@ -39,3 +40,13 @@ def delete_place(request, id):
     place_object = Place.objects.get(id=id)
     place_object.delete()
     return redirect(places)
+
+
+class FeedbackView(FormView):
+    template_name = 'places/feedback_form.html'
+    form_class = FeedbackForm
+    success_url = '/places/'
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
