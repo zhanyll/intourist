@@ -129,5 +129,7 @@ dmypy.json
 .pyre/
 
 media/
-.media
+media
 .media/
+
+chromedriver.exe
