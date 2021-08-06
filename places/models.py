@@ -16,8 +16,8 @@ class Place(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'место'
-        verbose_name_plural = 'Места'
+        verbose_name = 'Place'
+        verbose_name_plural = 'Places'
         ordering = ['name']
 
 
@@ -38,6 +38,8 @@ class Feedback(models.Model):
     )
 
     text = models.TextField(verbose_name='Feedack text')
+
+    checked = models.BooleanField(default=False, verbose_name='Processed')
 
     def __str__(self):
         return self.text[:20]
